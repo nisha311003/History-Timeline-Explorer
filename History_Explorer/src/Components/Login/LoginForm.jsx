@@ -20,23 +20,23 @@ class LoginForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const {Uname, email, password} = this.state;
-        // fetch("http://localhost:5000/login",{
-        //     method: "POST",
-        //     crossDomain: true,
-        //     headers:{
-        //         "Content-Type":"application/json",
-        //         Accept: "application/json",
-        //     },
-        //     body:JSON.stringify({
-        //         Uname,
-        //         email,
-        //         password
-        //     })
-        // })
-        // .then((res)=> res.json())
-        // .then((data)=>{
-        //     console.log(data);
-        // });
+        fetch("http://localhost:5000/login",{
+            method: "POST",
+            crossDomain: true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept: "application/json",
+            },
+            body:JSON.stringify({
+                Uname,
+                email,
+                password
+            })
+        })
+        .then((res)=> res.json())
+        .then((data)=>{
+            console.log(data);
+        });
     }
 
 

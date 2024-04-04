@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Signup.css';
 import { FaUser, FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
