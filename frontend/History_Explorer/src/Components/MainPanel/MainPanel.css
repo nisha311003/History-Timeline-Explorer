@@ -1,0 +1,124 @@
+/* 🔹 Remove Scrollbars & Ensure Full Fit */
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents both horizontal & vertical scrollbars */
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 🔹 Background Styling (Full Fit) */
+.history-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}
+.history-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Adjust opacity (0.5 = 50%) */
+    transition: background 0.1s ease-in-out;
+}
+/* 🔹 Center Button (Period) */
+.menuToggle,
+.menu {
+    position: relative;
+    z-index: 2; /*Keeps elements above the overlay */
+}
+.menuToggle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, white 30%, #d1d1d1);
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    transition: 0.5s ease-in-out;
+    z-index: 10;
+}
+
+/* 🔹 Circular Menu */
+.menu {
+    position: absolute;
+    width: 450px; /* Increased for more bubbles */
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+}
+
+/* Expands to Fit */
+.menu.active {
+    width: 450px;
+    height: 450px;
+}
+
+/* 🔹 Circular Button Arrangement */
+.menu li {
+    position: absolute;
+    list-style: none;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+/* When Active, Positions Elements in a Circle */
+.menu.active li {
+    opacity: 1;
+    transform: rotate(calc(360deg / var(--count) * var(--i))) translateX(250px);
+}
+
+/* 🔹 Circular Buttons Styling */
+.menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    border: 3px solid var(--clr);
+    transition: 0.3s;
+    background: transparent;
+    box-shadow: 0 0 8px var(--clr);
+    writing-mode: vertical-rl;
+    text-align: center;
+    padding: 5px;
+}
+
+/* 🔹 Adjust Text Rotation to Keep Readable */
+.menu li a {
+    transform: rotate(calc(270deg - (360deg / var(--count) * var(--i))));
+}
+
+/* 🔹 Hover Effect */
+.menu li a:hover {
+    transform: scale(1.1);
+    background: var(--clr);
+    color: #161616;
+    box-shadow: 0 0 15px var(--clr);
+}
