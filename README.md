@@ -62,11 +62,11 @@ History Timeline Explorer is an interactive and user-friendly designed to help u
    ```bash
    npm run index.js
    ```
-#### Frontend
-```bash
-cd myapp
-npm start
-```
+   #### Frontend
+   ```bash
+   cd myapp
+   npm start
+   ```
 
 ---
 
